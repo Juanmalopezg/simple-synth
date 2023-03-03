@@ -1,6 +1,8 @@
 use cpal::traits::{DeviceTrait, HostTrait, StreamTrait};
 use std::f32::consts::PI;
 use std::time::Duration;
+use std::sync::Arc;
+use wasm_bindgen::prelude::*;
 
 // Definimos una estructura para los parámetros de un oscilador
 struct OscillatorParams {
@@ -91,3 +93,26 @@ fn create_oscillator(frequency: f32, amplitude: f32, waveform: Waveform, speed: 
     };
     Oscillator::new(params)
 }
+
+// Indicamos que nuestra función será exportada al lado de JavaScript
+#[wasm_bindgen]
+pub fn next_sample(sample_rate: f32, frequency: f32, amplitude: f32, waveform: u32, speed: f32, phase: f32) -> f32 {
+    // Convertimos el valor del enumerador de Waveform a un valor real
+    let waveform = match waveform {
+        0 => Waveform::Sine,
+        1 => Waveform::Square,
+        2 => Waveform::Sawtooth,
+        _ => Waveform::Sine,
+    };
+
+    // Creamos el oscilador y calculamos el siguiente valor de muestra
+    let mut oscillator = Oscillator::new(OscillatorParams {
+        frequency,
+        amplitude,
+        waveform,
+        speed,
+        phase,
+    });
+    oscillator.next_sample(sample_rate)
+}
+
