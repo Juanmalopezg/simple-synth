@@ -33,7 +33,7 @@ impl Oscillator {
         match self.waveform {
             Waveform::Sine => self.amplitude * (2.0 * PI * self.phase).sin(),
             Waveform::Square => self.amplitude * (2.0 * PI * self.phase).sin().signum(),
-            Waveform::Sawtooth => (2.0 * self.amplitude / PI) * (self.frequency * PI * self.phase).sin().asin(),
+            Waveform::Sawtooth => self.amplitude * ((2.0 / PI) * (self.frequency * PI * self.phase).sin().asin()),
         }
     }
 }
@@ -45,9 +45,9 @@ fn main() {
     let sample_rate = config.sample_rate().0 as f32;
 
     let mut oscillators = vec![
-        Oscillator::new(55.0, 0.3, Waveform::Square, 1.0, 0.0),
-        Oscillator::new(110.0, 0.2, Waveform::Sawtooth, 1.0, 0.0),
-        Oscillator::new(220.0, 0.1, Waveform::Sine, 1.0, 0.0),
+        Oscillator::new(55.0, 0.01, Waveform::Square, 1.0, 0.0),
+        Oscillator::new(110.0, 0.01, Waveform::Sawtooth, 1.0, 0.0),
+        Oscillator::new(220.0, 0.01, Waveform::Sine, 1.0, 0.0),
     ];
 
     let stream = device.build_output_stream(

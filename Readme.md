@@ -12,12 +12,12 @@ To use the synthesizer, you'll need to install Rust and Cargo. You can then clon
 cargo run
 ```
 
-This will start the synthesizer and play a basic chord using three oscillators with different frequencies, amplitudes, and waveforms.
+This will start the synthesizer and play a basic chord using three oscillators with different frequencies, amplitudes, waveforms, speeds, and phases.
 
 ```
-Oscillator::new(55.0, 0.3, Waveform::Square, 1.0, 0.0),
-Oscillator::new(110.0, 0.2, Waveform::Sawtooth, 1.0, 0.0),
-Oscillator::new(220.0, 0.1, Waveform::Sine, 1.0, 0.0),
+Oscillator::new(55.0, 0.01, Waveform::Square, 1.0, 0.0),
+Oscillator::new(110.0, 0.01, Waveform::Sawtooth, 1.0, 0.0),
+Oscillator::new(220.0, 0.01, Waveform::Sine, 1.0, 0.0),
 ```
 
 You can modify the parameters of the oscillators by editing the **_create_oscillator()_** function in the **_main.rs_** file. You can also add more oscillators by creating additional instances of the _**Oscillator**_ struct and adding them to the _**oscillators**_ vector.
