@@ -1,6 +1,6 @@
 # Simple-Synth
 
-![](.\img\simple-synth.jpg)
+![](img/simple-synth.jpg)
 
 This is an experimental project that implements a basic software synthesizer in Rust using the CPAL library. The synthesizer can generate three types of waveforms (sine, square, and sawtooth) and allows you to configure the frequency, amplitude, speed, and phase of each oscillator.
 
