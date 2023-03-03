@@ -579,7 +579,6 @@ name = "simple-synth"
 version = "0.1.0"
 dependencies = [
  "cpal",
- "wasm-bindgen",
 ]
 
 [[package]]
