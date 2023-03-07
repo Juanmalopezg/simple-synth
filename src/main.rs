@@ -61,7 +61,7 @@ fn main() {
         let sample_rate = config.sample_rate().0 as f32;
 
         let mut oscillators = vec![
-            Oscillator::new(24.0, 0.01, Waveform::Square, 1.0, 0.0),
+            Oscillator::new(20.0, 0.01, Waveform::Square, 1.0, 0.0),
             Oscillator::new(5.0, 0.02, Waveform::Sawtooth, 1.0, 0.0),
             Oscillator::new(40.0, 0.01, Waveform::Sine, 1.0, 0.0),
         ];
