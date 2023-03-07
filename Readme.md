@@ -26,8 +26,17 @@ You can modify the parameters of the oscillators in real time by entering values
 ```
 index frequency amplitude waveform speed phase
    |      |        |        |        |     |
-   1      82      0.05    square     1     0
+   1      46     0.025    square    1.8    0
 ```
+To add a new oscillator just write the line with a non-existing index
+```
+3 10 0.05 saw 1.6 0
+```
+Stop the first oscillator (at index 0)
+```
+0 0 0 sine 0 0
+```
+
 ---
 
 > **Warning**

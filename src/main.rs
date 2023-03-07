@@ -76,6 +76,8 @@ fn main() {
                         oscillator.waveform = params.waveform;
                         oscillator.speed = params.speed;
                         oscillator.phase = params.phase;
+                    } else {
+                        oscillators.push(Oscillator::new(params.frequency, params.amplitude, params.waveform, params.speed, params.phase));
                     }
                 }
 
@@ -123,7 +125,7 @@ fn main() {
             let waveform = match values[3] {
                 "sine" => Waveform::Sine,
                 "square" => Waveform::Square,
-                "sawtooth" => Waveform::Sawtooth,
+                "saw" => Waveform::Sawtooth,
                 _ => continue,
             };
 
